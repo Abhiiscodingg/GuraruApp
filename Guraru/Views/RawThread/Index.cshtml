@@ -1,0 +1,94 @@
+﻿@model IEnumerable<GuraruRepository.Models.RawThread>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Godown Raw Thread Entry List</h1>
+
+<p>
+    <a asp-action="Create">New Entry</a>
+</p>
+<table class="table table-bordered table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+               Thread Weight
+            </th>
+            <th>
+               Used Weight
+            </th>
+            <th>
+                Bill Amount
+            </th>
+            <th>
+                Bill Number
+            </th>
+            <th>
+                Bill Date
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th> *@
+            <th>
+                Company Name
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th> *@
+            <th>
+               Quality
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr onclick="location.href = '@Url.Action("Details",new { id = item.ThreadId })'">
+            <td>
+                @Html.DisplayFor(modelItem => item.ThreadId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsedWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillDate)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.QualityNavigation.QualityName)
+            </td>
+            @* <td>
+                <a asp-action="Edit" asp-route-id="@item.ThreadId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ThreadId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ThreadId">Delete</a>
+            </td> *@
+        </tr>
+}
+    </tbody>
+</table>

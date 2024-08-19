@@ -1,0 +1,80 @@
+﻿@model GuraruRepository.Models.ManufacturingStage1
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Edit Machine Entry</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Machine" class="control-label"></label>
+                <select readonly="readonly" asp-for="Machine" class="form-control" asp-items="ViewBag.Machine"></select>
+                <span asp-validation-for="Machine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Machine Operator</label>
+                <select readonly="readonly" asp-for="MachineOperator" class="form-control" asp-items="ViewBag.MachineOperator"></select>
+                <span asp-validation-for="MachineOperator" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quality" class="control-label"></label>
+                <select readonly="readonly" asp-for="Quality" class="form-control" asp-items="ViewBag.Quality"></select>
+                <span asp-validation-for="Quality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubmittedWeght" class="control-label"></label>
+                <input readonly="readonly" asp-for="SubmittedWeght" class="form-control" />
+                <span asp-validation-for="SubmittedWeght" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompletedWeight" class="control-label"></label>
+                <input asp-for="CompletedWeight" class="form-control" />
+                <span asp-validation-for="CompletedWeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubmittedDate" class="control-label"></label>
+                <input readonly="readonly" asp-for="SubmittedDate" class="form-control" />
+                <span asp-validation-for="SubmittedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubmittedBy" class="control-label"></label>
+                <input readonly="readonly" asp-for="SubmittedBy" class="form-control" />
+                <span asp-validation-for="SubmittedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input readonly="readonly" asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            @* 
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="CompletedDate" class="control-label"></label>
+                <input asp-for="CompletedDate" class="form-control" />
+                <span asp-validation-for="CompletedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

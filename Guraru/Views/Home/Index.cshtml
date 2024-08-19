@@ -1,0 +1,85 @@
+﻿@model GodownWrapper
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h3>Godam Status</h3>
+</div>
+
+@foreach(var eachQuality in Model.RawQualities)
+{
+    <h5>@eachQuality.QualityName</h5>
+    <table class="table table-bordered table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    Godown Thread Balance
+                </th>
+                <th>
+                    Thread Godown To Machine
+                </th>
+                <th>
+                    Currently on Machine
+                </th>
+                <th>
+                    Completed From Machine
+                </th>
+                <th>
+                    Machine Product At Godown
+                </th>
+                <th>
+                    Current Final Stage
+                </th>
+                <th>
+                    Final Completed
+                </th>
+                <th>
+                    Final Product in Godown
+                </th>
+                <th>
+                    Exit From Godown
+                </th>
+
+            <tr />
+
+        </thead>
+        @foreach(var eachItem in Model.GodownStatuses?.Where(m=>m.Quality.QualityId.Equals(eachQuality.QualityId)))
+        {
+            <tbody>
+                <tr>
+                    <td class="table-success">
+                        @eachItem.ThreadWtGodown
+                    </td>
+                    <td>
+                        @eachItem.ThreadWtprocessed
+                    </td>
+                    <td>
+                        @eachItem.CurrentWeightOnMachine
+                    </td>
+                    <td>
+                        @eachItem.MachineCompletedWt
+                    </td>
+                    <td class="table-success">
+                        @eachItem.MachineProductGodown
+                    </td>
+                    <td>
+                        @eachItem.CurrentFinalStageWt
+                    </td>
+                    <td>
+                        @eachItem.FinalStageCompleted
+                    </td>
+                    <td class="table-success">
+                        @eachItem.FinalProductGodown
+                    </td>
+                    <td>
+                        @eachItem.GodownExit
+                    </td>
+                </tr>
+
+            </tbody>
+        }
+        
+    </table>
+}
+

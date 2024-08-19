@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Guraru.Models.RawThread>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div>
+    <h4>RawThread</h4>
+    <a type="button" asp-controller="ThreadRaw" asp-action="AddThread">Add Thread</a>
+    <hr />
+    <table class="table table-bordered table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ThreadWeight)</th>
+                <th>@Html.DisplayNameFor(model => model.BillAmount)</th>
+                <th>@Html.DisplayNameFor(model => model.BillNo)</th>
+                <th>@Html.DisplayNameFor(model => model.BillDate)</th>
+                <th>@Html.DisplayNameFor(model => model.CreatedBy)</th>
+                <th>@Html.DisplayNameFor(model => model.CompanyName)</th>
+                <th>@Html.DisplayNameFor(model => model.Quality)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.ThreadWeight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.BillAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.BillNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.BillDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.CreatedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.CompanyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Quality)
+                    </td>
+                </tr>
+                
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

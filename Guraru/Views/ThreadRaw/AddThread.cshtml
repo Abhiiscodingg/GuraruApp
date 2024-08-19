@@ -1,0 +1,65 @@
+﻿@model Guraru.Models.RawThread
+
+@{
+    ViewData["Title"] = "ThreadEntry";
+}
+
+<h1>ThreadEntry</h1>
+
+<h4>Thread</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddThread">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ThreadWeight" class="control-label"></label>
+                <input asp-for="ThreadWeight" class="form-control" />
+                <span asp-validation-for="ThreadWeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillAmount" class="control-label"></label>
+                <input asp-for="BillAmount" class="form-control" />
+                <span asp-validation-for="BillAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillDate" class="control-label"></label>
+                <input asp-for="BillDate" class="form-control" />
+                <span asp-validation-for="BillDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillNo" class="control-label"></label>
+                <input asp-for="BillNo" class="form-control" />
+                <span asp-validation-for="BillNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyName" class="control-label"></label>
+                <input asp-for="CompanyName" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quality" class="control-label"></label>
+                
+                <input asp-for="Quality" class="form-control" />
+                <span asp-validation-for="Quality" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

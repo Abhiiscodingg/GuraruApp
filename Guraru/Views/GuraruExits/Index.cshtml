@@ -1,0 +1,96 @@
+﻿@model IEnumerable<GuraruRepository.Models.GuraruExit>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Godown Exit</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Exit Weight
+            </th>
+            <th>
+                Quality
+            </th>
+            <th>
+                Bill Number
+            </th>
+            <th>
+                Bill Amount
+            </th>
+            <th>
+                Driver Name
+            </th>
+            <th>
+                Vehicle Number
+            </th>
+            <th>
+                Destination City
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th> *@
+            <th>
+                Submitted Date
+            </th>
+            <th>
+                Submitted By
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr onclick="location.href = '@Url.Action("Details",new { id = item.ExitId })'">
+            <td>
+                @Html.DisplayFor(modelItem => item.ExitWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QualityNavigation.QualityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DriverName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DestinationCity)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedBy)
+            </td>
+           
+            @* <td>
+                <a asp-action="Edit" asp-route-id="@item.ExitId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ExitId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ExitId">Delete</a>
+            </td> *@
+        </tr>
+}
+    </tbody>
+</table>

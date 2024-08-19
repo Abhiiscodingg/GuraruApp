@@ -1,0 +1,88 @@
+﻿@model GuraruRepository.Models.GuraruExit
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>GuraruExit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>Exit Weight</label>
+                <input asp-for="ExitWeight" class="form-control" />
+                <span asp-validation-for="ExitWeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quality" class="control-label"></label>
+                <select asp-for="Quality" class="form-control" asp-items="ViewBag.Quality"></select>
+            </div>
+            <div class="form-group">
+                <label>Bill Number</label>
+                <input asp-for="BillNumber" class="form-control" />
+                <span asp-validation-for="BillNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Bill Amount</label>
+                <input asp-for="BillAmount" class="form-control" />
+                <span asp-validation-for="BillAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Driver Name</label>
+                <input asp-for="DriverName" class="form-control" />
+                <span asp-validation-for="DriverName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Vehicle Number</label>
+                <input asp-for="VehicleNumber" class="form-control" />
+                <span asp-validation-for="VehicleNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Destination City</label>
+                <input asp-for="DestinationCity" class="form-control" />
+                <span asp-validation-for="DestinationCity" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+                <label asp-for="ChallanPhotoPath" class="control-label"></label>
+                <input asp-for="ChallanPhotoPath" class="form-control" />
+                <span asp-validation-for="ChallanPhotoPath" class="text-danger"></span>
+            </div> *@
+           
+            @* <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label>Submitted Date</label>
+                <input asp-for="SubmittedDate" class="form-control" />
+                <span asp-validation-for="SubmittedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Submitted By</label>
+                <input asp-for="SubmittedBy" class="form-control" />
+                <span asp-validation-for="SubmittedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
